@@ -9,7 +9,8 @@
             "interpreter_ss": "Interpreters",
             "place_ss": "Places",
             "collection_s": "Collections",
-            "series_s": "Series"
+            "series_s": "Series",
+            "year_is": "Year"
         },
         "collections": {
             "ch_gc": "Geneva Conservatory",

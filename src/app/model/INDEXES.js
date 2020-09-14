@@ -15,6 +15,7 @@ export const generateBrowseIndexes = () => [
     { label: renderFacetLabel('interpreter_ss'), value: 'interpreter_ss' },
     { label: renderFacetLabel('place_ss'), value: 'place_ss' },
     { label: renderFacetLabel('series_s'), value: 'series_s' },
+    { label: renderFacetLabel('year_is'), value: 'year_is' },
 ];
 
 export const DEFAULT_FACETS = [
@@ -22,7 +23,8 @@ export const DEFAULT_FACETS = [
     'interpreter_ss',
     'place_ss',
     'collection_s',
-    'series_s'
+    'series_s',
+    'year_is'
 ];
 
 export const generateCollections = () => [

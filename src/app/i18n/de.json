@@ -9,7 +9,8 @@
             "interpreter_ss": "Interpreten",
             "place_ss": "Orte",
             "collection_s": "Sammlungen",
-            "series_s": "Serien"
+            "series_s": "Serien",
+            "year_is": "Jahr"
         },
         "collections": {
             "ch_gc": "Genf Conservatoire",

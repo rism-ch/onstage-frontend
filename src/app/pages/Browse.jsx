@@ -39,12 +39,22 @@ const BrowsePage = () => {
         let firstLetter;
         const letters = [];
 
-        normalizeFacetsResults(browseContext.browseResults).forEach(term => {
-            if (firstLetter != term.label.substring(0, 1)) {
-                firstLetter = term.label.substring(0, 1);
-                letters.push(firstLetter);
-            }
-        });
+        if (browseContext.currentIndex.index != "year_is") {
+            normalizeFacetsResults(browseContext.browseResults).forEach(term => {
+                if (firstLetter != term.label.substring(0, 1)) {
+                    firstLetter = term.label.substring(0, 1);
+                    letters.push(firstLetter);
+                }
+            });
+        } else {
+            normalizeFacetsResults(browseContext.browseResults).forEach(term => {
+                var decade = Math.floor(term.label/20)*20;
+                if (firstLetter != decade) {
+                    firstLetter = decade;
+                    letters.push(decade);
+                }
+            });
+        }
 
         return browseContext.browseResults.length > 0
             ? (
@@ -66,18 +76,31 @@ const BrowsePage = () => {
         const results = normalizeFacetsResults(browseContext.browseResults).map((term, index) => {
             let header;
 
-            if (firstLetter != term.label.substring(0, 1)) {
-                firstLetter = term.label.substring(0, 1);
-                letters.push(firstLetter);
+            if (browseContext.currentIndex.index != "year_is") {
+                if (firstLetter != term.label.substring(0, 1)) {
+                    firstLetter = term.label.substring(0, 1);
+                    letters.push(firstLetter);
 
-                header = (
-                    <div style={{ borderBottom: '1px solid #eee', padding: '0 0 .5em 0', margin: '2em 0 .5em 0' }}>
-                        <a className="anchor" id={firstLetter} />
-                        <h2>{firstLetter}</h2>
-                    </div>
-                );
+                    header = (
+                        <div style={{ borderBottom: '1px solid #eee', padding: '0 0 .5em 0', margin: '2em 0 .5em 0' }}>
+                            <a className="anchor" id={firstLetter} />
+                            <h2>{firstLetter}</h2>
+                        </div>
+                    );
+                }
+            } else {
+                if (firstLetter != Math.floor(term.label/20)*20) {
+                    firstLetter = Math.floor(term.label/20)*20;
+                    letters.push(firstLetter);
+
+                    header = (
+                        <div style={{ borderBottom: '1px solid #eee', padding: '0 0 .5em 0', margin: '2em 0 .5em 0' }}>
+                            <a className="anchor" id={firstLetter} />
+                            <h2>{firstLetter}-{firstLetter + 19}</h2>
+                        </div>
+                    );
+                }
             }
-
             return (
                 <React.Fragment key={index}>
 

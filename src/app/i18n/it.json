@@ -9,7 +9,8 @@
             "interpreter_ss": "Interpreti",
             "place_ss": "Luoghi",
             "collection_s": "Collezioni",
-            "series_s": "Serie"
+            "series_s": "Serie",
+            "year_is": "Anno"
         },
         "collections": {
             "ch_gc": "Ginevra Conservatorio",
