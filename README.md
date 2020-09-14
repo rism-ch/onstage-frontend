@@ -53,7 +53,7 @@ To run locally, it is necessary to change the connector server. Install `onstage
 const useRemoteServer = false;
 ```
 
-Then start the `solr-adaptor` server running ```node solr-adaptor/server.js```
+Then start the `solr-adaptor` server running ```node solr-adapter/server.js```
 
 And finally ```npm start```
 

@@ -125,7 +125,7 @@ const BrowsePage = () => {
                 <PaginationHeader {...browseContext} />
             </FixedHeader>
 
-            <div style={{ paddingTop: '7.5em' }}>
+            <div style={{ paddingTop: '9.5em' }}>
                 {
                     browseContext.isLoading
                         ? (
@@ -157,6 +157,7 @@ const BrowsePage = () => {
                     <span>{t('browse.path')}</span>
                 ]}
             />
+            
             <form onSubmit={browseContext.onFormSubmitHandler}>
                 <div style={{ display: 'flex', jusityContent: 'flext-start' }}>
                     <Select
@@ -178,7 +179,7 @@ const BrowsePage = () => {
         let view = (
             <React.Fragment>
                 {renderForm()}
-                <div style={{ padding: '3em 0 1em 0' }}>
+                <div style={{ padding: '4em 0 1em 0' }}>
                     {browseContext.isLoading ? renderLoading() : renderBrowseResults()}
                 </div>
             </React.Fragment>
