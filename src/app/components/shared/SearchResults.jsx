@@ -18,7 +18,7 @@ const SearchResults = ({ searchResults, setSearchSelected, togglePinnedDocument,
                     <ActionLink action={() => setSearchSelected(element)}>{element.title_s}</ActionLink>
                     {element.place_ss}
                     <br />
-                    <span className="small">{element.year_is}</span>
+                    <span className="small">{element.year_is.join(", ")}</span>
                 </div>
             </FlexWrapper>
             <PrimaryButtonSmall action={() => togglePinnedDocument(element)}>
