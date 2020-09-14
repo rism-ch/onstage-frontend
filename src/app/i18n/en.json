@@ -7,7 +7,7 @@
         "indexes": {
             "composer_ss": "Composers",
             "interpreter_ss": "Interpreters",
-            "place_s": "Places",
+            "place_ss": "Places",
             "collection_s": "Collections",
             "series_s": "Series"
         },
@@ -25,6 +25,7 @@
                     "about": "About",
                     "fundsLosanne": "Lausanne Collection",
                     "fundsGeneve": "Geneva Collection",
+                    "fundsGeneveMusicale": "Geneva-La Musicale Collection",
                     "collectionsBasel": "Basel Collections",
                     "help": "Help"
                 }

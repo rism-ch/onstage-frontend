@@ -16,9 +16,9 @@ const SearchResults = ({ searchResults, setSearchSelected, togglePinnedDocument,
                 <img src={`http://d-lib.rism-ch.org/cgi-bin/iipsrv.fcgi?FIF=/usr/local/images/lausanne/${element.images_ss[0]}&WID=40&CVT=JPG`} />
                 <div style={{ marginLeft: '1.5em', flex: '1', overflow: 'hidden' }}>
                     <ActionLink action={() => setSearchSelected(element)}>{element.title_s}</ActionLink>
-                    {element.place_s}
+                    {element.place_ss}
                     <br />
-                    <span className="small">{element.year_i}</span>
+                    <span className="small">{element.year_is}</span>
                 </div>
             </FlexWrapper>
             <PrimaryButtonSmall action={() => togglePinnedDocument(element)}>

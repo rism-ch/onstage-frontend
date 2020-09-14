@@ -6,21 +6,21 @@ export const renderCollectionLabel = key => t(`common.collections.${key}`) || ke
 export const generateSearchIndexes = () => [
     { label: renderFacetLabel('composer_ss'), value: 'composer_txt' },
     { label: renderFacetLabel('interpreter_ss'), value: 'interpreter_txt' },
-    { label: renderFacetLabel('place_s'), value: 'place_txt' },
+    { label: renderFacetLabel('place_ss'), value: 'place_txt' },
     { label: renderFacetLabel('series_s'), value: 'series_txt' },
 ];
 
 export const generateBrowseIndexes = () => [
     { label: renderFacetLabel('composer_ss'), value: 'composer_ss' },
     { label: renderFacetLabel('interpreter_ss'), value: 'interpreter_ss' },
-    { label: renderFacetLabel('place_s'), value: 'place_s' },
+    { label: renderFacetLabel('place_ss'), value: 'place_ss' },
     { label: renderFacetLabel('series_s'), value: 'series_s' },
 ];
 
 export const DEFAULT_FACETS = [
     'composer_ss',
     'interpreter_ss',
-    'place_s',
+    'place_ss',
     'collection_s',
     'series_s'
 ];

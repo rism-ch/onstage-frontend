@@ -65,7 +65,7 @@ const generateSearchQuery = params => {
 
     if (dateRange.from || dateRange.to) {
         Object.assign(query.params, {
-            fq: `year_i:[${dateRange.from || '*'} TO ${dateRange.to || '*'}]`
+            fq: `year_is:[${dateRange.from || '*'} TO ${dateRange.to || '*'}]`
         });
     }
 

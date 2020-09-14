@@ -53,9 +53,9 @@ const PinnedPage = () => {
                                             <b>{element.title_s}</b>
                                         </Link>
                                     </h4>
-                                    {element.place_s}
+                                    {element.place_ss}
                                     <br />
-                                    <span className="small">{element.year_i}</span>
+                                    <span className="small">{element.year_is}</span>
                                 </div>
                             </FlexWrapper>
                             <PrimaryButtonSmall action={() => togglePinnedDocument(element)}>

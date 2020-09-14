@@ -34,7 +34,7 @@ const DocumentDetail = ({ selectedResource, unsetSearchSelected, goBackHidden })
                 <div className="documentDetail-metadata">
                     <h2>{element.title_s}</h2>
                     <h3>
-                        {element.place_s} - {element.year_i}
+                        {element.place_ss} - {element.year_is}
                     </h3>
                     <div>
                         {element.composer_ss && (

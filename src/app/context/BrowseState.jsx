@@ -74,7 +74,7 @@ const BrowseState = props => {
             collections: analysisContext.collections
         };
 
-        if (currentIndex.index === 'year_i') {
+        if (currentIndex.index === 'year_is') {
             searchTerms = {
                 ...searchTerms,
                 dateRange: {
