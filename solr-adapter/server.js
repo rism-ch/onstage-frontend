@@ -59,6 +59,7 @@ const generateSearchQuery = params => {
             q: indexes.length ? generateSearchQueryByIndexes({ searchKey, indexes }) : searchKey ? `${searchKey}` : '*:*',
             start: page * rows,
             rows,
+            sort: 'date_dts asc',
             wt: 'json'
         }
     };
