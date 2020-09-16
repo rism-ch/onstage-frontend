@@ -50,6 +50,7 @@ const BrowseState = props => {
     };
 
     const onSelectChangeHandler = index => {
+        setIsLoading(true);
         const updateBrowseTerms = { ...browseTerms, facets: { ...browseTerms.facets, fields: [index] } };
         setCurrentIndex({ index });
         setBrowseTerms(updateBrowseTerms);
@@ -110,8 +111,8 @@ const BrowseState = props => {
     };
 
     const storeSolrBrowseResults = solrBrowseResults => {
-        setIsLoading(false);
         setBrowseResults(solrBrowseResults.facet_counts.facet_fields[currentIndex.index]);
+        setIsLoading(false);
     };
 
     const performBrowse = browseTerms => {
@@ -207,7 +208,7 @@ const BrowseState = props => {
     useEffect(
         () => {
             if (didMount) {
-                
+
                 // we want to update index search results only if a browse result record is selected
                 currentIndex.position != null && performSearch({
                     ...searchTerms,

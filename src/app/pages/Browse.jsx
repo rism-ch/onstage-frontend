@@ -36,6 +36,8 @@ const BrowsePage = () => {
     };
 
     const renderBrowseNav = () => {
+        if (browseContext.isLoading) return null;
+
         let firstLetter;
         const letters = [];
 
@@ -48,7 +50,8 @@ const BrowsePage = () => {
             });
         } else {
             normalizeFacetsResults(browseContext.browseResults).forEach(term => {
-                var decade = Math.floor(term.label/20)*20;
+                // console.log(term);
+                var decade = Math.floor(term.label / 20) * 20;
                 if (firstLetter != decade) {
                     firstLetter = decade;
                     letters.push(decade);
@@ -89,8 +92,8 @@ const BrowsePage = () => {
                     );
                 }
             } else {
-                if (firstLetter != Math.floor(term.label/20)*20) {
-                    firstLetter = Math.floor(term.label/20)*20;
+                if (firstLetter != Math.floor(term.label / 20) * 20) {
+                    firstLetter = Math.floor(term.label / 20) * 20;
                     letters.push(firstLetter);
 
                     header = (
@@ -180,7 +183,7 @@ const BrowsePage = () => {
                     <span>{t('browse.path')}</span>
                 ]}
             />
-            
+
             <form onSubmit={browseContext.onFormSubmitHandler}>
                 <div style={{ display: 'flex', jusityContent: 'flext-start' }}>
                     <Select
@@ -195,7 +198,7 @@ const BrowsePage = () => {
             </form>
         </FixedHeader>
     );
-//                    <PrimaryButton type="submit" disabled={!browseContext.currentIndex.index}>{t('browse.form.submit')}</PrimaryButton>
+    //                    <PrimaryButton type="submit" disabled={!browseContext.currentIndex.index}>{t('browse.form.submit')}</PrimaryButton>
 
     const renderView = () => {
 
