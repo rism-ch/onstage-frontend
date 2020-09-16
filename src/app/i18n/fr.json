@@ -83,5 +83,13 @@
         "header_plural": "Vous avez épinglé {{count}} documents",
         "noPins": "Pas encore de documents épinglés",
         "purge": "Supprimer tout"
+    },
+    "show": {
+        "places": "Lieux",
+        "composers": "Compositeurs",
+        "interpreters": "Interprètes",
+        "notes": "Notes",
+        "idno": "Cote",
+        "collection": "Collection"
     }
 }

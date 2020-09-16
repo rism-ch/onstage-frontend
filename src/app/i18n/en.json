@@ -83,5 +83,13 @@
         "header_plural": "You have pinned {{count}} documents",
         "noPins": "No documents pinned yet",
         "purge": "Remove all"
+    },
+    "show": {
+        "places": "Places",
+        "composers": "Composers",
+        "interpreters": "Interpreters",
+        "notes": "Notes",
+        "idno": "Signature",
+        "collection": "Collection"
     }
 }

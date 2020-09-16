@@ -83,5 +83,13 @@
         "header_plural": "Sie haben {{count}} Dokumente",
         "noPins": "Sie haben noch keine Dokumente in der Merkliste",
         "purge": "Alle entfernen"
+    },
+    "show": {
+        "places": "Orte",
+        "composers": "Komponisten",
+        "interpreters": "Interpreten",
+        "notes": "Bemerkungen",
+        "idno": "Standort",
+        "collection": "Sammlung"
     }
 }

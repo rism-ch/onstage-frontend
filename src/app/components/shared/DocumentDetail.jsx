@@ -32,14 +32,26 @@ const DocumentDetail = ({ selectedResource, unsetSearchSelected, goBackHidden })
                 </div>
 
                 <div className="documentDetail-metadata">
-                    <h2>{element.title_s}</h2>
-                    <h3>
-                        {element.place_ss} - {element.year_is.join(", ")}
-                    </h3>
+                    <h3>{element.title_s}</h3>
+                    <h4>
+                        {element.date_dts ? element.date_dts.map(element => new Date(element).toLocaleDateString("fr-CH")).join(", ") : "none"}
+                    </h4>
                     <div>
+                    {element.place_ss && (
+                            <React.Fragment>
+                                <h4>{t('show.places')}</h4>
+                                {element.place_ss.map(
+                                    (place, index) => (
+                                        <div key={index}>
+                                            {place}
+                                        </div>
+                                    )
+                                )}
+                            </React.Fragment>
+                        )}
                         {element.composer_ss && (
                             <React.Fragment>
-                                <h4>Composers</h4>
+                                <h4>{t('show.composers')}</h4>
                                 {element.composer_ss.map(
                                     (composer, index) => (
                                         <div key={index}>
@@ -52,7 +64,7 @@ const DocumentDetail = ({ selectedResource, unsetSearchSelected, goBackHidden })
                         {element.interpreter_ss && (
                             <React.Fragment>
                                 <br />
-                                <h4>Interpreters</h4>
+                                <h4>{t('show.interpreters')}</h4>
                                 {element.interpreter_ss.map(
                                     (interpreter, index) => (
                                         <div key={index}>
@@ -62,6 +74,39 @@ const DocumentDetail = ({ selectedResource, unsetSearchSelected, goBackHidden })
                                 )}
                             </React.Fragment>
                         )}
+                        {element.note_ss && (
+                            <React.Fragment>
+                                <br />
+                                <h4>{t('show.notes')}</h4>
+                                {element.note_ss.map(
+                                    (note, index) => (
+                                        <div key={index}>
+                                            {note}
+                                        </div>
+                                    )
+                                )}
+                            </React.Fragment>
+                        )}
+                        {element.idno_ss && (
+                            <React.Fragment>
+                                <br />
+                                <h4>{t('show.idno')}</h4>
+                                {element.idno_ss.map(
+                                    (idno, index) => (
+                                        <div key={index}>
+                                            {idno}
+                                        </div>
+                                    )
+                                )}
+                            </React.Fragment>
+                        )}
+                        <React.Fragment>
+                            <br />
+                            <h4>{t('show.collection')}</h4>
+                            {t(`common.collections.${element.collection_s}`)}
+                        </React.Fragment>
+                        
+
                     </div>
                 </div>
 

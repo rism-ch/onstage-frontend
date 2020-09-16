@@ -83,5 +83,13 @@
         "header_plural": "Hai salvato {{count}} documenti negli appunti",
         "noPins": "Nessun documento negli appunti",
         "purge": "Rimuovi tutti"
+    },
+    "show": {
+        "places": "Luoghi",
+        "composers": "Compositori",
+        "interpreters": "Interpreti",
+        "notes": "Note",
+        "idno": "Collocazione",
+        "collection": "Collezione"
     }
 }
