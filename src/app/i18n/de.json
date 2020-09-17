@@ -62,7 +62,8 @@
             "less": "Weniger",
             "filter": "Filter"
         },
-        "noResults": "Keine Resultate gefunden"
+        "noResults": "Keine Resultate gefunden",
+        "any_field": "jedes Feld"
     },
     "browse": {
         "path": "Stöbern",

@@ -62,7 +62,8 @@
             "less": "Mostra meno",
             "filter": "Filtra"
         },
-        "noResults": "Nessun documento trovato"
+        "noResults": "Nessun documento trovato",
+        "any_field": "Qualsiasi campo"
     },
     "browse": {
         "path": "Consulta",

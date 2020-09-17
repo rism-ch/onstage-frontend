@@ -81,9 +81,6 @@ const SearchPage = () => {
                             {'>>'}
                         </PrimaryButtonSmall>
                     </ButtonGroup>
-                    <PrimaryButtonSmall disabled={searchContext.searchHistory.length == 0} action={() => confirm('Are you sure?') && searchContext.purgeSearchHistory()}>
-                        {'reset'}
-                    </PrimaryButtonSmall>
                 </FlexWrapper>
 
             </FlexWrapper>
@@ -100,7 +97,7 @@ const SearchPage = () => {
                         style={{ flex: 1, minWidth: '211px' }}
                         value={searchContext.searchTerms.indexes[0]}
                         // placeholder={t('search.form.select_placeholder')}
-                        options={[{ label: 'Full-text', value: '' }].concat(generateSearchIndexes())}
+                        options={[{ label: t('search.any_field'), value: '' }].concat(generateSearchIndexes())}
                         onChangeHandler={searchContext.searchParamChangeHandler('indexes')}
                     />
                     <PrimaryButton type="submit">{t('search.form.submit')}</PrimaryButton>

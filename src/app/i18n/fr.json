@@ -62,7 +62,8 @@
             "less": "Afficher moins",
             "filter": "Filtrez"
         },
-        "noResults": "Aucun résultat trouvé"
+        "noResults": "Aucun résultat trouvé",
+        "any_field": "n'importe quel"
     },
     "browse": {
         "path": "Naviguer",

@@ -62,7 +62,8 @@
             "less": "Show less",
             "filter": "Filter"
         },
-        "noResults": "No results found"
+        "noResults": "No results found",
+        "any_field": "Any field"
     },
     "browse": {
         "path": "Browse",

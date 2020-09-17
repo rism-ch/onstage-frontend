@@ -18,7 +18,7 @@ const SearchResults = ({ searchResults, setSearchSelected, togglePinnedDocument,
                     <ActionLink action={() => setSearchSelected(element)}>{element.title_s}</ActionLink>
                     {element.place_ss}
                     <br />
-                    <span className="small">{element.date_dts ? element.date_dts.map(element => new Date(element).toLocaleDateString("fr-CH")).join(", ") : "none"}</span>
+                    <span className="small">{element.date_dts ? element.date_dts.map(element => new Date(element).toLocaleDateString("fr-CH")).join(" - ") : "none"}</span>
                 </div>
             </FlexWrapper>
             <PrimaryButtonSmall action={() => togglePinnedDocument(element)}>

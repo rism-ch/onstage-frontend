@@ -34,7 +34,7 @@ const DocumentDetail = ({ selectedResource, unsetSearchSelected, goBackHidden })
                 <div className="documentDetail-metadata">
                     <h3>{element.title_s}</h3>
                     <h4>
-                        {element.date_dts ? element.date_dts.map(element => new Date(element).toLocaleDateString("fr-CH")).join(", ") : "none"}
+                        {element.date_dts ? element.date_dts.map(element => new Date(element).toLocaleDateString("fr-CH")).join(" - ") : "none"}
                     </h4>
                     <div>
                     {element.place_ss && (
