@@ -13,8 +13,13 @@ export const normalizeFacetsResults = list => {
         }
     });
 
+    normalized.sort(function(a, b) {
+        return a.label.toLowerCase().localeCompare(b.label.toLowerCase());
+    })
+
     // Collate all the results
-    var collator = new Intl.Collator("ru");
+    
+    var collator = new Intl.Collator("fr");
     normalized.sort(function(a, b) {
         return collator.compare(a.label[0], b.label[0])
     })
