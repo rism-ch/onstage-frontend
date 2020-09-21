@@ -13,6 +13,11 @@ export const normalizeFacetsResults = list => {
         }
     });
 
+    // Collate all the results
+    var collator = new Intl.Collator("ru");
+    normalized.sort(function(a, b) {
+        return collator.compare(a.label[0], b.label[0])
+    })
     return normalized;
 };
 

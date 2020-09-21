@@ -43,8 +43,8 @@ const BrowsePage = () => {
 
         if (browseContext.currentIndex.index != "year_is") {
             normalizeFacetsResults(browseContext.browseResults).forEach(term => {
-                if (firstLetter != term.label.substring(0, 1)) {
-                    firstLetter = term.label.substring(0, 1);
+                if (firstLetter != term.label.substring(0, 1).toUpperCase()) {
+                    firstLetter = term.label.substring(0, 1).toUpperCase();
                     letters.push(firstLetter);
                 }
             });
