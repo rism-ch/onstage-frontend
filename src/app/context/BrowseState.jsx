@@ -75,6 +75,7 @@ const BrowseState = props => {
             collections: analysisContext.collections
         };
 
+        /*
         if (currentIndex.index === 'year_is') {
             searchTerms = {
                 ...searchTerms,
@@ -85,7 +86,7 @@ const BrowseState = props => {
                 searchKey,
                 page: 0
             };
-        } else {
+        } else {*/
             searchTerms = {
                 ...searchTerms,
                 searchKey,
@@ -93,7 +94,7 @@ const BrowseState = props => {
                 dateRange: analysisContext.dateRange,
                 page: 0
             };
-        }
+        //}
 
         setSearchTerms(searchTerms);
 
@@ -143,6 +144,7 @@ const BrowseState = props => {
     };
 
     const performSearch = searchTerms => {
+        console.log("search");
         window.scrollTo(0, 0);
         return Solr
             .search(searchTerms)
@@ -218,6 +220,7 @@ const BrowseState = props => {
 
                 // we want to update browse results only after index browse selection
                 currentIndex.index && performBrowse(browseTerms);
+
             }
         },
         [

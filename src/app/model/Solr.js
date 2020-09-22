@@ -34,8 +34,7 @@ export const normalizeDates = fulldate => {
     if (!fulldate)
         return "none"
     
-
-    return fulldate.map(element => {
+    return fulldate.sort().map(element => {
         var year = element.substring(0, 4);
         var month = element.substring(4, 6);
         var day = element.substring(6, 8);
@@ -44,8 +43,9 @@ export const normalizeDates = fulldate => {
 };
 
 const debug = query => {
+
     if (DEBUG) {
-        console.log(query.url, query.config && query.config.params);
+        //console.log(query.url, query.config && query.config.params);
     }
 
     return query;
