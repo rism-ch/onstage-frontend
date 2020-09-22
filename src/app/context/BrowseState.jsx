@@ -151,7 +151,7 @@ const BrowseState = props => {
 
     const selectNext = () => {
         const nextKey = currentIndex.position + 1;
-        const normalizedResults = Solr.normalizeFacetsResults(browseResults);
+        const normalizedResults = Solr.normalizeFacetsResults(browseResults, true);
 
         if (normalizedResults[nextKey]) {
             const term = normalizedResults[nextKey];
@@ -167,7 +167,7 @@ const BrowseState = props => {
 
     const selectPrevious = () => {
         const prevKey = currentIndex.position - 1;
-        const normalizedResults = Solr.normalizeFacetsResults(browseResults);
+        const normalizedResults = Solr.normalizeFacetsResults(browseResults, true);
 
         if (normalizedResults[prevKey]) {
             const term = normalizedResults[prevKey];

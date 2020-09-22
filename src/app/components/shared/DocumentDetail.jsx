@@ -5,6 +5,8 @@ import { t } from '../../i18n';
 import Diva from '../wrappers/Diva.jsx';
 import ActionLink from '../template/components/ActionLink.jsx';
 
+import {normalizeDates} from '../../model/Solr';
+
 import './DocumentDetail.scss';
 
 const DocumentDetail = ({ selectedResource, unsetSearchSelected, goBackHidden }) => {
@@ -34,7 +36,7 @@ const DocumentDetail = ({ selectedResource, unsetSearchSelected, goBackHidden })
                 <div className="documentDetail-metadata">
                     <h3>{element.title_s}</h3>
                     <h4>
-                        {element.date_dts ? element.date_dts.map(element => new Date(element).toLocaleDateString("fr-CH")).join(" - ") : "none"}
+                        {normalizeDates(element.fulldate_ss)}
                     </h4>
                     <div>
                     {element.place_ss && (

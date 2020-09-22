@@ -9,6 +9,8 @@ import { PrimaryButtonSmall } from '../template/components/Buttons.jsx';
 import FlexWrapper from '../template/components/FlexWrapper.jsx';
 import { PinIcon } from '../template/components/Icons.jsx';
 
+import {normalizeDates} from '../../model/Solr';
+
 const SearchResults = ({ searchResults, setSearchSelected, togglePinnedDocument, isPinned }) => searchResults.results.map(element => (
     <SearchResultsItem key={element.id}>
         <FlexWrapper justifyContent="space-between" alignItems="center">
@@ -20,7 +22,7 @@ const SearchResults = ({ searchResults, setSearchSelected, togglePinnedDocument,
                     <ActionLink action={() => setSearchSelected(element)}>{element.title_s}</ActionLink>
                     {element.place_ss ? element.place_ss.join(" - ") : "[s.l.]"}
                     <br />
-                    <span className="small">{element.date_dts ? element.date_dts.map(element => new Date(element).toLocaleDateString("fr-CH")).join(" - ") : "none"}</span>
+                    <span className="small">{normalizeDates(element.fulldate_ss)}</span>
                 </div>
             </FlexWrapper>
             <PrimaryButtonSmall action={() => togglePinnedDocument(element)}>

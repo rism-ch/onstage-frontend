@@ -1,6 +1,6 @@
 import RestClient from '../service/RestClient';
 
-export const normalizeFacetsResults = list => {
+export const normalizeFacetsResults = (list, order = false) => {
     let normalized = [];
 
     list.forEach((value, index) => {
@@ -13,17 +13,34 @@ export const normalizeFacetsResults = list => {
         }
     });
 
-    normalized.sort(function(a, b) {
-        return a.label.toLowerCase().localeCompare(b.label.toLowerCase());
-    })
+    if (order) {
+        normalized.sort(function(a, b) {
+            return a.label.toLowerCase().localeCompare(b.label.toLowerCase());
+        });
 
-    // Collate all the results
-    
-    var collator = new Intl.Collator("fr");
-    normalized.sort(function(a, b) {
-        return collator.compare(a.label[0], b.label[0])
-    })
+        // Collate all the results
+        
+        var collator = new Intl.Collator("fr");
+        normalized.sort(function(a, b) {
+            return collator.compare(a.label[0], b.label[0])
+        });
+    }
     return normalized;
+};
+
+export const normalizeDates = fulldate => {
+    // Old function
+    // element.date_dts ? element.date_dts.map(element => new Date(element).toLocaleDateString("fr-CH")).join(" - ") : "none"
+    if (!fulldate)
+        return "none"
+    
+
+    return fulldate.map(element => {
+        var year = element.substring(0, 4);
+        var month = element.substring(4, 6);
+        var day = element.substring(6, 8);
+        return day + "." + month + "." +  year;
+    }).join(" - ");
 };
 
 const debug = query => {

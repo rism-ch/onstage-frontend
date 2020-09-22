@@ -42,14 +42,14 @@ const BrowsePage = () => {
         const letters = [];
 
         if (browseContext.currentIndex.index != "year_is") {
-            normalizeFacetsResults(browseContext.browseResults).forEach(term => {
+            normalizeFacetsResults(browseContext.browseResults, true).forEach(term => {
                 if (firstLetter != term.label.substring(0, 1).toUpperCase()) {
                     firstLetter = term.label.substring(0, 1).toUpperCase();
                     letters.push(firstLetter);
                 }
             });
         } else {
-            normalizeFacetsResults(browseContext.browseResults).forEach(term => {
+            normalizeFacetsResults(browseContext.browseResults, true).forEach(term => {
                 // console.log(term);
                 var decade = Math.floor(term.label / 20) * 20;
                 if (firstLetter != decade) {
@@ -76,7 +76,7 @@ const BrowsePage = () => {
         let firstLetter;
         const letters = [];
 
-        const results = normalizeFacetsResults(browseContext.browseResults).map((term, index) => {
+        const results = normalizeFacetsResults(browseContext.browseResults, true).map((term, index) => {
             let header;
 
             if (browseContext.currentIndex.index != "year_is") {
@@ -138,7 +138,7 @@ const BrowsePage = () => {
                             <PrimaryButtonSmall action={browseContext.selectPrevious} disabled={browseContext.currentIndex.position < 1}>
                                 {'<<'}
                             </PrimaryButtonSmall>
-                            <PrimaryButtonSmall action={browseContext.selectNext} disabled={browseContext.currentIndex.position + 1 == normalizeFacetsResults(browseContext.browseResults).length}>
+                            <PrimaryButtonSmall action={browseContext.selectNext} disabled={browseContext.currentIndex.position + 1 == normalizeFacetsResults(browseContext.browseResults, true).length}>
                                 {'>>'}
                             </PrimaryButtonSmall>
                         </ButtonGroup>
