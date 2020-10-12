@@ -59,7 +59,7 @@ const generateSearchQuery = params => {
             q: indexes.length ? generateSearchQueryByIndexes({ searchKey, indexes }) : searchKey ? `${searchKey}` : '*:*',
             start: page * rows,
             rows,
-            sort: 'date_dts asc',
+            sort: 'year_is asc',
             wt: 'json'
         }
     };
@@ -110,8 +110,6 @@ app.get('/api/search', (req, res) => {
     const dateRange = req.query.dateRange && JSON.parse(req.query.dateRange) || {};
     const filters = req.query.filters && req.query.filters.map(sanitizeFilter) || [];
     const collections = req.query.collections || [];
-
-
 
     const params = generateSearchQuery({
         searchKey: req.query.searchKey,
