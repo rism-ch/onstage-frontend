@@ -11,8 +11,9 @@ export default class PermalinkPlugin
 
     handleClick () 
     {
-        let  url = document.location.origin + '/source/' + this.core.publicInstance.getItemTitle();
-        
+        let filename = this.core.settings.objectData.split('/').pop().replace(".json", "");
+        let  url = document.location.origin + '/source/' + filename;//this.core.publicInstance.getItemTitle();
+                
         // make a transparent textarea
         var textArea = document.createElement("textarea");
         textArea.style.position = 'fixed';

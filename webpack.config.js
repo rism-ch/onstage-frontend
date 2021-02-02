@@ -96,7 +96,8 @@ module.exports = environment => ({
             DEBUG: !environment.production, // if true it will show the query parameters into console
 
             // here it is the endpoint for Diva JS manifest server
-            DIVA_BASE_MANIFEST_SERVER: JSON.stringify('http://manifest.rism-ch.org/manifest/'),
+            //DIVA_BASE_MANIFEST_SERVER: JSON.stringify('http://manifest.rism-ch.org/manifest/'),
+            DIVA_BASE_MANIFEST_SERVER: JSON.stringify('https://iiif.rism.digital/manifest/onstage/'),
 
             // here it is the endpoint for remote onstage search server 
             // used only if useRemoteServer is setted as true, as explained above

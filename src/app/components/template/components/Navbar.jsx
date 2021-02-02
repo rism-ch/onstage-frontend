@@ -20,7 +20,7 @@ export const Navbar = () => {
     return (
         <div className="navbar-root">
             <Link to="/">
-                <img src="http://d-lib.rism-ch.org/onstage/images/logo_trans-75-b.png" style={{ maxHeight: '38px' }} />
+                <img src="https://raw.githubusercontent.com/rism-ch/onstage-texts/master/images/logo_trans-75-b.png" style={{ maxHeight: '38px' }} />
             </Link>
             <div className="navbar-menu">
                 <DropdownMenu label={t('common.topMenu.pages.label')} items={[

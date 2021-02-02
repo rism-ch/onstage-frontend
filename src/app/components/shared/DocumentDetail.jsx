@@ -30,7 +30,7 @@ const DocumentDetail = ({ selectedResource, unsetSearchSelected, goBackHidden })
 
             <div className="documentDetail-wrapper">
                 <div className="documentDetail-divaWrapper">
-                    <Diva manifest={element.id} />
+                    <Diva manifest={element.manifest_ss} />
                 </div>
 
                 <div className="documentDetail-metadata">
