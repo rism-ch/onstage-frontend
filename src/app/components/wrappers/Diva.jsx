@@ -33,7 +33,7 @@ export default class DivaReact extends Component {
     initDiva() {
         if (this.props.manifest) {
             this.diva = new Diva(this.divaWrapper.id, {
-                objectData: `${DIVA_BASE_MANIFEST_SERVER}${this.props.manifest}`.replaceAll(".xml", ".json"),
+                objectData: `${DIVA_BASE_MANIFEST_SERVER}${this.props.manifest}`.replace(".xml", ".json"),
                 enableGotoPage: false,
                 plugins: [Diva.PermalinkPlugin]
             });
