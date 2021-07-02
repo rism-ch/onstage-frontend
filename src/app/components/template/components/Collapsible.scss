@@ -39,37 +39,21 @@
             margin-bottom: 1px;
             border-radius: .25rem;
 
-            &:hover{
+            li {
+                padding: .5em;
+
+                a {
+                    float: right;
+                }
+            }
+
+            li:hover{
                 background: $light-gray-e !important;
             }
         }
     }
 
     &__collapsed {
-
-        .collapsible {
-
-            &-header {
-                &-caption::before {
-                    content: '';
-                    display: inline-block;
-                    position: relative;
-                    transform: rotate(90deg);
-                    border-top: 0;
-                    border-right: 3px solid #323232;
-                    width: 7px;
-                    height: 10px;
-                    margin-right: 9px;
-                    margin-top: -6px;
-                    margin-bottom: 5px;
-                }
-            }
-
-            &-body {
-                max-height: 500px;
-            }
-        }
-
         &-finished {
             .collapsible {
                 &-body {
@@ -78,4 +62,32 @@
             }   
         }
     }
+
+}
+
+.collapsible__collapsed > .collapsible-header .collapsible-header-caption::before { 
+    content: '';
+    display: inline-block;
+    position: relative;
+    transform: rotate(90deg);
+    border-top: 0;
+    border-right: 3px solid #323232;
+    width: 7px;
+    height: 10px;
+    margin-right: 9px;
+    margin-top: -6px;
+    margin-bottom: 5px;
+}
+
+
+.collapsible__collapsed > .collapsible-body {
+    max-height: none;
+}
+
+.collapsible__collapsed > .collapsible-body > .collapsible__collapsed > .collapsible-body{
+    max-height: 500px;
+}
+
+.collapsible-root .collapsible-body > .collapsible-root {
+    margin-left: 1.5em;
 }

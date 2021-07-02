@@ -29,8 +29,8 @@ module.exports = environment => ({
 
         // here it is the local server configuration
         proxy: {
-            '/public/**': {
-                target: 'http://localhost/HKB/inventari-di-napoli/',
+            '/api/**': {
+                target: 'http://localhost:5000/api/',
                 changeOrigin: true,
                 secure: false,
             },
@@ -87,14 +87,18 @@ module.exports = environment => ({
 
             // here it is the endpoint for Diva JS manifest server
             DIVA_BASE_MANIFEST_SERVER: environment.production
-                ? JSON.stringify('https://hkb-idn.altibo.club/public/')
-                : JSON.stringify('/public/'),
+                ? JSON.stringify('https://rism-kb.altibo.club/public/')
+                : JSON.stringify('https://iiif.rism.digital/manifest/ch/'),
 
             // here it is the endpoint for remote onstage search server 
             // used only if useRemoteServer is setted as true, as explained above
             SOLR_BASE_SERVER: environment.production || useRemoteServer
                 ? JSON.stringify('http://onstage-search.rism-ch.org')
                 : JSON.stringify(''),
+
+            JSON_BASE_SERVER: environment.production || useRemoteServer
+                ? JSON.stringify('https://rism-kb-search.altibo.club')
+                : JSON.stringify('http://localhost:5000'),
         })
     ]
 });

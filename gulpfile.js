@@ -35,6 +35,16 @@ gulp.task('deploy-frontend', gulp.series('build', () => {
         .pipe(sftp(opts));
 }));
 
+gulp.task('deploy-backend', () => {
+    const opts = {
+        ...webApps.dataset,
+        log: gutil.log
+    };
+
+    return gulp
+        .src('./json-adapter/**', { base: './json-adapter', buffer: false })
+        .pipe(sftp(opts));
+});
 
 gulp.task('deploy-dataset', () => {
     const opts = {
@@ -47,7 +57,7 @@ gulp.task('deploy-dataset', () => {
         .pipe(sftp(opts));
 });
 
-gulp.task('deploy', gulp.parallel('deploy-dataset', 'deploy-frontend'));
+gulp.task('deploy', gulp.parallel('deploy-dataset', 'deploy-backend', 'deploy-frontend'));
 
 gulp.task('webpack-dev-server', () => {
     const config = getWebpackConfig({ production: false });

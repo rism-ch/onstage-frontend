@@ -43,17 +43,19 @@
         "nav": {
             "prev": "« Previous page",
             "next": "Next page »",
-            "count": "{{from}} - {{to}} of {{total}}"
+            "count": "Found {{count}} results"
         },
         "form": {
             "search_placeholder": "Input your search terms here...",
             "select_placeholder": "Search by index",
-            "submit": "Search"
+            "submit": "Search",
+            "loading": "Loading.."
         },
         "actions": {
             "pin": "Pin this document",
             "unpin": "Remove from pinned",
-            "back": "Go back"
+            "back": "Go back",
+            "go": "Go"
         },
         "facets": {
             "more": "Show more",
@@ -66,7 +68,8 @@
         "path": "Browse",
         "form": {
             "select_placeholder": "Select index",
-            "submit": "Browse"
+            "submit": "Browse",
+            "loading": "Loading.."
         },
         "prev": "« Previous",
         "next": "Next »",

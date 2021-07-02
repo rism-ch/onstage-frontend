@@ -1,4 +1,5 @@
 /node_modules/
 /build/
 /solr-adapter/node_modules/
+/json-adapter/node_modules/
 gulp.config.js

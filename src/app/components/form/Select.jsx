@@ -38,6 +38,7 @@ class Select extends Component {
             <div className="select-root" style={this.props.style}>
                 {label && <label>{label}</label>}
                 <select
+                    style={this.props.inputStyle}
                     className="select-input"
                     value={this.state.value}
                     onChange={this.onChangeHandler.bind(this)}

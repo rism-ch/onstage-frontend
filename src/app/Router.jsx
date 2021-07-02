@@ -9,6 +9,7 @@ import InventariBrowse from './pages/InventariBrowse.jsx';
 import Source from './pages/Source.jsx';
 import Browse from './pages/Browse.jsx';
 import Pinned from './pages/Pinned.jsx';
+import Book from './pages/Book.jsx';
 import StaticHtml from './pages/StaticHtml.jsx';
 import Index from './pages/Index.jsx';
 
@@ -16,6 +17,7 @@ import SearchState from './context/SearchState.jsx';
 import BrowseState from './context/BrowseState.jsx';
 import AnalysisState from './context/AnalysisState.jsx';
 import NapoliState from './context/NapoliState.jsx';
+
 
 const Router = () => (
     <BrowserRouter>
@@ -27,17 +29,18 @@ const Router = () => (
                     <Route path="/browse" component={Browse} />
                 </BrowseState>
             </SearchState> */}
-            <Route path="/pin" component={Pinned} />
-            <Route path="/source/:manifest" component={Source} />
+            {/* <Route path="/pin" component={Pinned} />
+            <Route path="/source/:manifest" component={Source} /> */}
             <NapoliState>
                 <Route path="/page/:filename" component={StaticHtml} />
                 <Route path="/" exact component={Index} />
-                <Route path="/inventari" exact component={Inventari} />
-                <Route path="/inventario/:id" exact component={Inventario} />
-                {/* <Route path="/consulta" exact component={Consulta} /> */}
+                <Route path="/search" exact component={Inventari} />
+                {/* <Route path="/inventario/:id" exact component={Inventario} />
+                <Route path="/consulta" exact component={Consulta} />
                 <Route path="/consulta/:inventory" exact component={Consulta} />
-                <Route path="/consulta/:inventory/:page" exact component={Consulta} />
+                <Route path="/consulta/:inventory/:page" exact component={Consulta} /> */}
                 <Route path="/browse" exact component={InventariBrowse} />
+                <Route path="/book" exact component={Book} />
             </NapoliState>
         </AnalysisState>
     </BrowserRouter>

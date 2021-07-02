@@ -13,6 +13,10 @@ export default class DivaReact extends Component {
     constructor(props) {
         super(props);
 
+        this.state = {
+            loaded: false
+        };
+
         this.diva;
         this.divaWrapper;
 
@@ -29,17 +33,27 @@ export default class DivaReact extends Component {
         return nextProps.manifest !== this.props.manifest;
     }
 
-    componentDidUpdate() {
-        this.initDiva();
-    }
-
     componentDidMount() {
         this.initDiva();
     }
 
     UNSAFE_componentWillReceiveProps(nextProps) {
         if (nextProps.currentPage != null && this.props.currentPage !== nextProps.currentPage) {
-            this.diva && this.diva.gotoPageByIndex(nextProps.currentPage);
+            this.state.loaded && this.diva.gotoPageByIndex(nextProps.currentPage);
+        }
+
+        if (nextProps.currentPageURI != null && this.props.currentPageURI !== nextProps.currentPageURI) {
+            this.state.loaded && this.diva.gotoPageByURI(nextProps.currentPageURI);
+        }
+
+        if (this.props.onPageChangeHandler && this.state.loaded) {
+            this.diva && this.props.onPageChangeHandler(this.diva.getActivePageIndex());
+        }
+
+        // console.log(nextProps.initialPageURI, this.props.initialPageURI);
+
+        if (nextProps.initialPageURI && this.props.initialPageURI !== nextProps.initialPageURI) {
+            this.state.loaded && this.diva.gotoPageByURI(nextProps.initialPageURI);
         }
     }
 
@@ -60,16 +74,35 @@ export default class DivaReact extends Component {
                             ...this.props.enablePlugins != undefined && { plugins: [Diva.PermalinkPlugin] }
                         });
 
+
+
                         if (this.props.onScrollHandler) {
-                            Diva.Events.subscribe('ViewerDidScroll', () => this.debounce(() => this.props.onScrollHandler(this.diva.getActivePageIndex()), 500));
+                            Diva.Events.subscribe('ViewerDidScroll', () => this.debounce(() => {
+                                if (this.props.currentPageURI !== this.diva.getCurrentPageURI()) {
+                                    this.props.onScrollHandler(this.diva.getCurrentPageURI());
+                                }
+                            }, 500));
                         }
 
-                        if (this.props.initialPage) {
-                            Diva.Events.subscribe('ViewerDidLoad', () => this.diva.gotoPageByIndex(this.props.initialPage));
-                        }
+                        Diva.Events.subscribe('ViewerDidLoad', () => {
+                            this.setState({ loaded: true });
+
+                            if (this.props.initialPageURI) {
+                                // console.log(this.props.initialPageURI);
+                                this.diva.gotoPageByURI(this.props.initialPageURI);
+                            }
+
+                            // if (this.props.initialPage) {
+                            //     this.diva.gotoPageByIndex(this.props.initialPage);
+                            // }
+
+                            if (this.props.onLoad) {
+                                this.props.onLoad(this.diva.getNumberOfPages());
+                            }
+                        });
                     }
                 })
-                .catch(() => this.divaWrapper.innerHTML = '<div class="no-content"><h5>No image found</h5></div>');
+                .catch((e) => { console.log(e); this.divaWrapper.innerHTML = '<div class="no-content"><h5>No image found</h5></div>'; });
         }
     }
 

@@ -19,8 +19,8 @@ const SidebarWithRoute = props => {
 
     return (
         <div className="sidebar-root">
-            <Link onClick={() => { searchContext.unsetSearchSelected ? searchContext.unsetSearchSelected() : false; }} to="/inventari">
-                <ClearButton isActive={isActive('inventari')}>
+            <Link onClick={() => { searchContext.unsetSearchSelected ? searchContext.unsetSearchSelected() : false; }} to="/search">
+                <ClearButton isActive={isActive('search')}>
                     <SearchIcon />
                 </ClearButton>
             </Link>
@@ -31,8 +31,8 @@ const SidebarWithRoute = props => {
                 </ClearButton>
             </Link>
 
-            <Link to="/page/consulta">
-                <ClearButton isActive={isActive('consulta')}>
+            <Link to="/book">
+                <ClearButton isActive={isActive('book')}>
                     <BookIcon />
                 </ClearButton>
             </Link>

@@ -31,11 +31,11 @@ const Inventari = () => {
     const [searchTerm, setSearchTerm] = useStateWithSession('', 'searchTerm', 'NapoliState');
     const [highlightTerm, setHighlightTerm] = useStateWithSession('', 'highlightTerm', 'NapoliState');
 
-    const { searchResults, fullTextSearch } = useContext(NapoliContext);
+    const { searchResults, performSearch, loadingSearch } = useContext(NapoliContext);
 
     return (
         <Template>
-            <form style={{ marginTop: '.5em', marginBottom: '2em' }} onSubmit={(e) => { e.preventDefault(); fullTextSearch(searchTerm); setHighlightTerm(searchTerm); }}>
+            <form style={{ marginTop: '.5em', marginBottom: '2em' }} onSubmit={(e) => { e.preventDefault(); performSearch(searchTerm); setHighlightTerm(searchTerm); }}>
                 <FlexWrapper>
                     <Input
                         style={{ width: '100%' }}
@@ -44,30 +44,35 @@ const Inventari = () => {
                         value={searchTerm}
                         onChangeHandler={setSearchTerm}
                     />
-                    <PrimaryButton type="submit" disabled={!/\S/.test(searchTerm)}>{t('search.form.submit')}</PrimaryButton>
+                    <PrimaryButton type="submit" disabled={!/\S/.test(searchTerm) || loadingSearch}>{t(`search.form.${loadingSearch ? 'loading' : 'submit'}`)}</PrimaryButton>
                 </FlexWrapper>
             </form>
             <div style={{ marginBottom: '2em' }}>
                 <h5>{t('search.nav.count', { count: Object.keys(searchResults).length || 0 })} </h5>
             </div>
             {
-                searchResults && Object.keys(searchResults).map(key => (
+                loadingSearch
+                    ?
+                    <FlexWrapper justifyContent="center" alignItems="center" style={{ flexDirection: 'column', height: '70vh' }}>
+                        <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                        <h4>Loading data, please wait..</h4>
+                    </FlexWrapper>
+                    : searchResults && searchResults.map((result, key) => (
 
-
-                    <div key={key} style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '.5em' }}>
-                        <div style={{ display: 'flex', justifyContent: 'flex-start', width: 'calc(100% - 100px)' }}>
-                            <div style={{ width: '100px', paddingRight: '1em' }}>
-                                <h5>{key}</h5>
+                        <div key={key} style={{ display: 'flex', justifyContent: 'space-between', paddingBottom: '.5em' }}>
+                            <div style={{ display: 'flex', justifyContent: 'flex-start', width: 'calc(100% - 100px)' }}>
+                                <div style={{ width: '100px', paddingRight: '1em' }}>
+                                    <h5>{key}</h5>
+                                </div>
+                                <div style={{ width: 'calc(100% - 200px)' }}>
+                                    {getHighlightedText(result.transcription, highlightTerm)}
+                                </div>
                             </div>
-                            <div style={{ width: 'calc(100% - 200px)' }}>
-                                {getHighlightedText(searchResults[key].transcription, highlightTerm)}
-                            </div>
+                            <Link to={`/book#${result.ref}`}>{t('search.actions.go')}</Link>
                         </div>
-                        <Link to={`/inventario/${key}`}>{t('search.actions.go')}</Link>
-                    </div>
 
 
-                ))
+                    ))
             }
         </Template >
     );

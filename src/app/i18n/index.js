@@ -10,18 +10,18 @@ const resources = {
     de: deutsch
 };
 
-const FALLBACK_LANGUAGE = 'it';
+const FALLBACK_LANGUAGE = 'en';
 
 let resource;
 
 export const fetchLanguageFromBrowser = () => {
-    if (window.navigator.userLanguage) {
-        return window.navigator.userLanguage.substring(0, 2);
-    }
+    // if (window.navigator.userLanguage) {
+    //     return window.navigator.userLanguage.substring(0, 2);
+    // }
 
-    if (window.navigator.language) {
-        return window.navigator.language.substring(0, 2);
-    }
+    // if (window.navigator.language) {
+    //     return window.navigator.language.substring(0, 2);
+    // }
 
     return FALLBACK_LANGUAGE;
 };
