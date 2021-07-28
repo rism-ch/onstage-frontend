@@ -68,7 +68,7 @@ const Inventari = () => {
                                     {getHighlightedText(result.transcription, highlightTerm)}
                                 </div>
                             </div>
-                            <Link to={`/book#${result.ref}`}>{t('search.actions.go')}</Link>
+                            <Link to={`/book#${result.ref}`} target="_blank">{t('search.actions.go')}</Link>
                         </div>
 
 

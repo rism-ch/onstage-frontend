@@ -3,12 +3,13 @@
 const gulp = require('gulp');
 const gutil = require('gulp-util');
 const sftp = require('gulp-sftp');
+const gssh = require('gulp-ssh');
 const del = require('del');
 const webpack = require('webpack');
 const webpackDevServer = require('webpack-dev-server');
 const getWebpackConfig = require('./webpack.config');
 
-const { webApps } = require('./gulp.config');
+const { webApps, sshConfig } = require('./gulp.config');
 
 gulp.task('clean', () => {
     return del('./build');
@@ -35,22 +36,39 @@ gulp.task('deploy-frontend', gulp.series('build', () => {
         .pipe(sftp(opts));
 }));
 
-gulp.task('deploy-backend', () => {
+
+gulp.task('pre-deploy-backend', () => {
     const opts = {
-        ...webApps.dataset,
+        ...webApps.backend,
         log: gutil.log
     };
 
     return gulp
-        .src('./json-adapter/**', { base: './json-adapter', buffer: false })
+        .src('./json-adapter/*.js*', { base: './json-adapter', buffer: false })
         .pipe(sftp(opts));
 });
+
+gulp.task('deploy-backend', gulp.series('pre-deploy-backend', () => {
+    const ssh = new gssh({ sshConfig });
+
+    return ssh
+        .shell(
+            [
+                'cd /var/www/kapellmeisterbuch/backend/',
+                'npm install',
+                'sudo service apache2 reload'
+            ],
+            { filePath: 'shell.log' }
+        );
+}));
 
 gulp.task('deploy-dataset', () => {
     const opts = {
         ...webApps.dataset,
         log: gutil.log
     };
+
+    console.log(opts);
 
     return gulp
         .src('./public/**', { base: './public', buffer: false })

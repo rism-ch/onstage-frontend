@@ -86,9 +86,10 @@ module.exports = environment => ({
             DEBUG: false, //!environment.production, // if true it will show the query parameters into console
 
             // here it is the endpoint for Diva JS manifest server
-            DIVA_BASE_MANIFEST_SERVER: environment.production
-                ? JSON.stringify('https://rism-kb.altibo.club/public/')
-                : JSON.stringify('https://iiif.rism.digital/manifest/ch/'),
+            DIVA_BASE_MANIFEST_SERVER: JSON.stringify('https://iiif.rism.digital/manifest/ch/'),
+            // environment.production || useRemoteServer
+            //     ? JSON.stringify('https://iiif.rism.digital/manifest/ch/')
+            //     : JSON.stringify('https://rism-kb.altibo.club/public/'),
 
             // here it is the endpoint for remote onstage search server 
             // used only if useRemoteServer is setted as true, as explained above
@@ -97,8 +98,8 @@ module.exports = environment => ({
                 : JSON.stringify(''),
 
             JSON_BASE_SERVER: environment.production || useRemoteServer
-                ? JSON.stringify('https://rism-kb-search.altibo.club')
-                : JSON.stringify('http://localhost:5000'),
+                ? JSON.stringify('http://kapellmeisterbuch-api.rism.digital')
+                : JSON.stringify('https://rism-kb-search.altibo.club')
         })
     ]
 });

@@ -8,7 +8,7 @@ export default class PermalinkPlugin {
   }
 
   handleClick() {
-    let url = document.location.origin + '/html#' + this.core.publicInstance.getCurrentPageURI().replace('https://iiif.rism.digital/image/ch/CH_E_925_03/pyr_', '').slice(0, -4);
+    let url = document.location.origin + '/book#' + this.core.publicInstance.getCurrentPageURI().replace('https://iiif.rism.digital/image/ch/CH_E_925_03/pyr_', '').slice(0, -4);
 
     // make a transparent textarea
     var textArea = document.createElement('textarea');

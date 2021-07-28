@@ -12,8 +12,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-var data = require('../public/KbIndex.json');
-var fulltext = require('../public/KbFulltext.json');
+var data = require('./public/KbIndex.json');
+var fulltext = require('./public/KbFulltext.json');
 
 
 app.get('/api/browse', (req, res) => {

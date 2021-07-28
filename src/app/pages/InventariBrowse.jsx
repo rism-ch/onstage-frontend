@@ -104,8 +104,8 @@ const InventariBrowse = () => {
                                             (
                                                 <div key={related[`${key}_${linked.name}`].name}>{related[`${key}_${linked.name}`].name}
                                                     <ul>
-                                                        {related[`${key}_${linked.name}`].link && Array.isArray(related[`${key}_${linked.name}`].link) && related[`${key}_${linked.name}`].link.map((e, index) => <li key={index}>{e.label} <Link to={`/book#${e.target.split(';')[1]}`}>{t('search.actions.go')}</Link></li>)}
-                                                        {related[`${key}_${linked.name}`].link && !Array.isArray(related[`${key}_${linked.name}`].link) && <li>{related[`${key}_${linked.name}`].link.label} <Link to={`/book#${related[`${key}_${linked.name}`].link.target.split(';')[1]}`}>{t('search.actions.go')}</Link></li>}
+                                                        {related[`${key}_${linked.name}`].link && Array.isArray(related[`${key}_${linked.name}`].link) && related[`${key}_${linked.name}`].link.map((e, index) => <li key={index}>{e.label} <Link target="_blank" to={`/book#${e.target.split(';')[1]}`}>{t('search.actions.go')}</Link></li>)}
+                                                        {related[`${key}_${linked.name}`].link && !Array.isArray(related[`${key}_${linked.name}`].link) && <li>{related[`${key}_${linked.name}`].link.label} <Link target="_blank" to={`/book#${related[`${key}_${linked.name}`].link.target.split(';')[1]}`}>{t('search.actions.go')}</Link></li>}
                                                     </ul>
                                                 </div>
                                             )
