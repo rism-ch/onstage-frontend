@@ -1,7 +1,7 @@
 # Kapellmeisterbuch
 
 <!--div style="width: 150px; float: right; margin: 0px 0px 10px 30px;">
-	<img src="//raw.githubusercontent.com/tibonilab/inventari-di-napoli/development/static/einsiedeln_c.png">
+	<img src="//raw.githubusercontent.com/tibonilab/inventari-di-napoli/static/einsiedeln_c.png">
 </div-->
 
 The Benedictine abbey of Einsiedeln in Switzerland holds a uncommon handwritten music inventory, the Kapellmeisterbuch, in which each piece of music performed at the abbey on Sundays and other feasts between 1813 and 1852, and fragmentary from 1805 to 1884, were registered by the Kapellmeister. The book, which contains about 340 pages, is an unique document and an extremely valuable resource for musicologists for the study of the musical life in the 19th century in Switzerland.
