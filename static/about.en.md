@@ -1,3 +1,5 @@
+   ## About the source
+   
    <div class="msIdentifier">Einsiedeln, Musikbibliothek, 925,3</div>
    <div class="quelle"></div>
    <div><span class="head">Manuscript title: </span><span>Kirchenmusikalische Aufzeichnungen (Kapellmeisterbuch)</span></div>
@@ -83,7 +85,7 @@
       </ul>
    </div>
    					
-   <div class="head">Contents: </div>
+### Contents
 
    <div>
       						   The Benedicine abbey of Einsiedeln possesses a unique source for the study of its musical life in the early 19th
@@ -118,7 +120,9 @@
       liturgical calendar (p. 226, 274, 289). The Kapellmeister can thus also be of use as a source for liturgical history.<br></br><br></br>
       						
    </div>
-   <div class="head">Bibliography:</div>
+   
+### Bibliography
+
    <ul>
       <li>Claudio <span class="sc">Bacciagaluppi</span>, «‘La musique prédomine trop dans nos abbaïes helvétiques’: Einige Quellen zur Stellung der Figuralmusik in Schweizer Klöstern»,
          in Musiques des monastères de la region alpine – Musik aus Klöstern des Alpenraums, ed. par Giuliano Castellani, Bern (in
