@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-const SOLR_URL_PRFIX = 'http://localhost:8984';
+const SOLR_URL_PRFIX = process.env.SOLR || 'http://localhost:8984';
 
 
 const sanitizeIndex = (index, searchKey) => index.includes('_s') ? `${index}:"${searchKey}"` : `${index}:${searchKey}`;
