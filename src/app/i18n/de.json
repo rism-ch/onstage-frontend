@@ -13,10 +13,10 @@
             "year_is": "Jahr"
         },
         "collections": {
-            "ch_gc": "Genf Conservatoire",
-            "ch_gm": "Genf La Musicale",
-            "ch_lac": "Lausanne",
-            "ch_famb": "Basel"
+            "ch_gc": "Conservatoire de Genève",
+            "ch_gm": "La Musicale – Genève",
+            "ch_lac": "Conservatoire de Lausanne",
+            "ch_famb": "Freunde Alter Musik Basel"
         },
         "topMenu": {
             "pages": {
@@ -24,10 +24,10 @@
                 "items": {
                     "home": "Hauptseite",
                     "about": "Über uns",
-                    "fundsLosanne": "Sammlung Lausanne",
-                    "fundsGeneve": "Sammlung Genf-Conservatoire",
-                    "fundsGeneveMusicale": "Sammlung Genf-La Musicale",
-                    "collectionsBasel": "Sammlung Basel",
+                    "fundsLosanne": "Sammlung Conservatoire de Lausanne",
+                    "fundsGeneve": "Sammlung Conservatoire de Genève",
+                    "fundsGeneveMusicale": "Sammlung La Musicale – Genève",
+                    "collectionsBasel": "Sammlung Freunde Alter Musik Basel",
                     "help": "Hilfe"
                 }
             },
