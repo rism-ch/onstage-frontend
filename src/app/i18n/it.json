@@ -13,10 +13,10 @@
             "year_is": "Anno"
         },
         "collections": {
-            "ch_gc": "Ginevra Conservatorio",
-            "ch_gm": "Ginevra La Musicale",
-            "ch_lac": "Losanna",
-            "ch_famb": "Basilea"
+            "ch_gc": "Conservatoire de Genève",
+            "ch_gm": "La Musicale – Genève",
+            "ch_lac": "Conservatoire de Lausanne",
+            "ch_famb": "Freunde Alter Musik Basel"
         },
         "topMenu": {
             "pages": {
@@ -24,10 +24,10 @@
                 "items": {
                     "home": "Pagina iniziale",
                     "about": "A proposito",
-                    "fundsLosanne": "Fondo Losanna",
-                    "fundsGeneve": "Fondo Ginevra-Conservatoire",
-                    "fundsGeneveMusicale": "Fondo Ginevra-La Musicale",
-                    "collectionsBasel": "Fondo Basilea",
+                    "fundsLosanne": "Fondo Conservatoire de Lausanne",
+                    "fundsGeneve": "Fondo Conservatoire de Genève",
+                    "fundsGeneveMusicale": "Fondo La Musicale – Genève",
+                    "collectionsBasel": "Fondo Freunde Alter Musik Basel",
                     "help": "Aiuto"
                 }
             },
