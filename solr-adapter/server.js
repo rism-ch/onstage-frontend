@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-const SOLR_URL_PRFIX = process.env.SOLR || 'http://localhost:8984';
+const SOLR_URL_PRFIX = process.env.SOLR || 'http://localhost:8983';
 
 
 const sanitizeIndex = (index, searchKey) => index.includes('_s') ? `${index}:"${searchKey}"` : `${index}:${searchKey}`;
@@ -106,8 +106,8 @@ const sanitizeFilter = filter => {
 
 app.get('/api/search', (req, res) => {
 
-    const facets = req.query.facets && JSON.parse(req.query.facets) || {};
-    const dateRange = req.query.dateRange && JSON.parse(req.query.dateRange) || {};
+    const facets = req.query.facets || {};
+    const dateRange = req.query.dateRange || {};
     const filters = req.query.filters && req.query.filters.map(sanitizeFilter) || [];
     const collections = req.query.collections || [];
 
