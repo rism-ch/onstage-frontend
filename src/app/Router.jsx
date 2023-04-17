@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Search from './pages/Search.jsx';
 import Source from './pages/Source.jsx';
@@ -16,15 +16,18 @@ const Router = () => (
     <BrowserRouter>
         <AnalysisState>
             <SearchState>
-                <Route path="/" exact component={Index} />
-                <Route path="/search" component={Search} />
                 <BrowseState>
-                    <Route path="/browse" component={Browse} />
+                    <Routes>
+                        <Route path="/" index element={<Index />} />
+                        <Route path="/search" element={<Search />} />
+                        <Route path="/browse" element={<Browse />} />
+                        <Route path="/pin" element={<Pinned />} />
+                        <Route path="/source/:manifest" element={<Source />} />
+                        <Route path="/page/:filename" element={<StaticHtml />} />
+                        <Route path="*" element={<p>Path not resolved</p>} />
+                    </Routes>
                 </BrowseState>
             </SearchState>
-            <Route path="/pin" component={Pinned} />
-            <Route path="/source/:manifest" component={Source} />
-            <Route path="/page/:filename" component={StaticHtml} />
         </AnalysisState>
     </BrowserRouter>
 );
