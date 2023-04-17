@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { useStateWithSession } from '../service/serviceStorage';
 
-import { withRouter } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 import { useDidMount } from '../hooks/useDidMount';
 
@@ -27,10 +27,12 @@ const AnalysisState = props => {
 
     const didMount = useDidMount();
 
+    const location = useLocation();
+
     const dateRangeChangeHandler = updatedDateRange => {
         setDateRange(updatedDateRange);
 
-        if (didMount && !isEqual(dateRange, updatedDateRange) && props.location.pathname.includes('/search')) {
+        if (didMount && !isEqual(dateRange, updatedDateRange) && location.pathname.includes('/search')) {
             setShouldUpdateSearchHistory(true);
         }
     };
@@ -38,7 +40,7 @@ const AnalysisState = props => {
     const changeCollectionsSelectorHandler = updatedCollections => {
         setCollections(updatedCollections);
 
-        if (didMount && !isEqual(collections, updatedCollections) && props.location.pathname.includes('/search')) {
+        if (didMount && !isEqual(collections, updatedCollections) && location.pathname.includes('/search')) {
             setShouldUpdateSearchHistory(true);
         }
     };
@@ -81,4 +83,4 @@ const AnalysisState = props => {
     );
 };
 
-export default withRouter(AnalysisState);
+export default AnalysisState;

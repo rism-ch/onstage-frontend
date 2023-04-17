@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 import Template from '../components/template/Template.jsx';
 
@@ -6,11 +7,13 @@ import DocumentDetail from '../components/shared/DocumentDetail.jsx';
 
 import Solr from '../model/Solr';
 
-const Source = ({ match }) => {
+const Source = () => {
+
+    const match = useParams();
 
     const [data, setData] = useState({});
 
-    const manifest = `${match.params.manifest}.xml`;
+    const manifest = `${match.manifest}.xml`;
 
     useEffect(
         () => {

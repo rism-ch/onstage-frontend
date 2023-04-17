@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import { Link, withRouter } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import { SearchIcon, BrowseIcon, PinIcon } from './Icons.jsx';
 import { ClearButton } from './Buttons.jsx';
@@ -9,9 +9,11 @@ import AnalysisContext from '../../../context/analysisContext';
 import BrowseContext from '../../../context/browseContext';
 import SearchContext from '../../../context/searchContext';
 
-const SidebarWithRoute = props => {
+export const Sidebar = () => {
 
-    const isActive = (path) => props.location.pathname.includes(path);
+    const location = useLocation();
+
+    const isActive = (path) => location.pathname.includes(path);
 
     const { pinnedDocuments } = useContext(AnalysisContext);
     const browseContext = useContext(BrowseContext);
@@ -40,5 +42,3 @@ const SidebarWithRoute = props => {
         </div>
     );
 };
-
-export const Sidebar = withRouter(SidebarWithRoute);

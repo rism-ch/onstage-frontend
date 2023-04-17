@@ -5,7 +5,7 @@ import { useStateWithSession } from '../service/serviceStorage';
 import SearchContext from './searchContext';
 import AnalysisContext from './analysisContext';
 
-import { withRouter } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 import { useDidMount } from '../hooks/useDidMount';
 
@@ -40,6 +40,8 @@ const SearchState = props => {
     const [currentSearchHistoryIndex, setCurrentSearchHistoryIndex] = useStateWithSession(0, 'currentSearchHistoryIndex', SESSION_PREFIX);
 
     const analysisContext = useContext(AnalysisContext);
+
+    const location = useLocation();
 
     const searchParamChangeHandler = param => value => {
         setSearchTerms(
@@ -167,7 +169,7 @@ const SearchState = props => {
     useEffect(
         () => {
             // we want to update search results only after the first search...
-            if (didMount && searchResults.numFound != null && props.location.pathname.includes('/search')) {
+            if (didMount && searchResults.numFound != null && location.pathname.includes('/search')) {
                 performSearch(generateSearchTerms(searchTerms));
             }
         },
@@ -218,4 +220,4 @@ const SearchState = props => {
     );
 };
 
-export default withRouter(SearchState);
+export default SearchState;

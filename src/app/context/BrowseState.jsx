@@ -1,7 +1,5 @@
 import React, { useContext, useEffect } from 'react';
 
-import { withRouter } from 'react-router-dom';
-
 import { useStateWithSession } from '../service/serviceStorage';
 import { useDidMount } from '../hooks/useDidMount';
 
@@ -14,7 +12,7 @@ import SearchContext from './searchContext';
 
 const SESSION_PREFIX = 'BrowseState';
 
-const DEFAULT_INDEX_NAME = "composer_ss"
+const DEFAULT_INDEX_NAME = "composer_ss";
 
 const INITIAL_BROWSE_TERMS = {
     facets: {
@@ -259,4 +257,4 @@ const BrowseState = props => {
     );
 };
 
-export default withRouter(BrowseState);
+export default BrowseState;
