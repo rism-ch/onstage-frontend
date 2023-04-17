@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 
 import Router from './app/Router.jsx';
 
@@ -12,10 +12,11 @@ const App = () => (
     </GlobalState>
 );
 
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
 export const renderApp = () => {
-    ReactDOM.render(
-        <App />,
-        document.getElementById('root')
+    root.render(
+        <App />
     );
 };
 
