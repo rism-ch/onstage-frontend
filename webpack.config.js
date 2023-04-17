@@ -24,7 +24,9 @@ module.exports = environment => ({
         modules: [path.resolve(__dirname, 'src'), 'node_modules']
     },
     devServer: {
-        contentBase: path.join(__dirname, 'src'),
+        static: {
+            directory: path.join(__dirname, 'src')
+        },
         historyApiFallback: true,
 
         // here it is the local server configuration
@@ -60,15 +62,12 @@ module.exports = environment => ({
             },
             {
                 test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
-                loaders: ['file-loader']
+                use: ['file-loader']
             },
             {
                 test: /\.(html)$/,
                 use: {
                     loader: 'html-loader',
-                    options: {
-                        attrs: [':data-src']
-                    }
                 }
             },
             {
