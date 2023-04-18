@@ -7,10 +7,12 @@ import Browse from './pages/Browse.jsx';
 import Pinned from './pages/Pinned.jsx';
 import StaticHtml from './pages/StaticHtml.jsx';
 import Index from './pages/Index.jsx';
+import Collection from './pages/Collection.jsx';
 
 import SearchState from './context/SearchState.jsx';
 import BrowseState from './context/BrowseState.jsx';
 import AnalysisState from './context/AnalysisState.jsx';
+
 
 const Router = () => (
     <BrowserRouter>
@@ -19,6 +21,7 @@ const Router = () => (
                 <BrowseState>
                     <Routes>
                         <Route path="/" index element={<Index />} />
+                        <Route path="/collection/:collection" element={<Collection />} />
                         <Route path="/search" element={<Search />} />
                         <Route path="/browse" element={<Browse />} />
                         <Route path="/pin" element={<Pinned />} />
