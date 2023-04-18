@@ -40,7 +40,10 @@ module.exports = environment => ({
                 'Access-Control-Allow-Origin': '*'
             }
         },
-        open: true
+        open: true,
+        client: {
+            overlay: false
+        }
     },
     module: {
         rules: [
