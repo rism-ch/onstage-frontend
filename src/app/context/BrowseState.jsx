@@ -142,7 +142,7 @@ const BrowseState = props => {
     };
 
     const performSearch = searchTerms => {
-        console.log("search");
+        // console.log("search");
         window.scrollTo(0, 0);
         return Solr
             .search(searchTerms)
