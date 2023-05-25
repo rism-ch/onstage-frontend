@@ -20,6 +20,27 @@
                 align-items: center;
                 justify-content: space-between;
             }
+
+            &-left {
+                display: flex;
+                align-items: center;
+
+                .select {
+                    &-input {
+                        padding: .5rem 1rem;
+                        margin: 4px 0 0 1.8em;
+                        text-transform: none;
+                        // background-color: #efefef;
+                        // color: #323232;
+
+                        option {
+                            padding: .5em;
+                            text-transform: none;
+                            line-height: 1rem;
+                        }
+                    }
+                }
+            }
         }
 
         .sidebar {

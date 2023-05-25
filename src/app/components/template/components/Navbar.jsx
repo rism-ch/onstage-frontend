@@ -2,14 +2,18 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import GlobalContext from '../../../context/globalContext';
+import AnalysisContet from '../../../context/analysisContext';
 import DropdownMenu from './DropdownMenu.jsx';
 
 import { t } from '../../../i18n';
+import Select from '../../form/Select.jsx';
 
-
+import { generateCollections } from '../../../model/INDEXES';
 
 export const Navbar = () => {
     const { language, setLanguage } = useContext(GlobalContext);
+
+    const { collections, changeCollectionsSelectorHandler } = useContext(AnalysisContet);
 
     const changeLanguage = lang => e => {
         e.preventDefault();
@@ -17,11 +21,28 @@ export const Navbar = () => {
         window.location.reload();
     };
 
+    const selectedCollection = collections.length > 1 ? 'all' : collections[0];
+
+    const changeSelectionHandler = selection => {
+        if (selection === 'all') {
+            changeCollectionsSelectorHandler(generateCollections().map(e => e.field));
+        } else {
+            changeCollectionsSelectorHandler([selection]);
+        }
+    };
+
     return (
         <div className="navbar-root">
-            <Link to="/">
-                <img src="https://raw.githubusercontent.com/rism-ch/onstage-texts/master/images/logo_trans-75-b.png" style={{ maxHeight: '38px' }} />
-            </Link>
+            <div className="navbar-left">
+                <Link to="/">
+                    <img src="https://raw.githubusercontent.com/rism-ch/onstage-texts/master/images/logo_trans-75-b.png" style={{ maxHeight: '38px' }} />
+                </Link>
+                <Select
+                    options={[{value: 'all', label: t('common.collections.all')}].concat(generateCollections().map(e => ({...e, value: e.field})))}
+                    value={selectedCollection}
+                    onChangeHandler={changeSelectionHandler}
+                />
+            </div>
             <div className="navbar-menu">
                 <DropdownMenu label={t('common.topMenu.pages.label')} items={[
                     <Link to="/">{t('common.topMenu.pages.items.home')}</Link>,
