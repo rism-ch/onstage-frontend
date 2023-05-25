@@ -1,9 +1,9 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 import AnalysisContext from '../context/analysisContext';
 
-import { generateCollections } from '../model/INDEXES';
+import { collectionByURL } from '../model/INDEXES';
 
 const Collection = () => {
     const analysisContext = useContext(AnalysisContext);
@@ -11,11 +11,18 @@ const Collection = () => {
     const { collection } = useParams();
     const navigate = useNavigate();
 
-    if (generateCollections().some(c => c.field == collection)) {
-        analysisContext.changeCollectionsSelectorHandler([collection]);
-    }
+    const match = collectionByURL(collection);
 
-    navigate('/');
+    useEffect(() => {
+        if (match) {
+            analysisContext.changeCollectionsSelectorHandler([match]);
+            navigate('/search');
+        } else {
+            navigate('/');
+        }
+    }, [match]);
+
+    return null;
 };
 
 export default Collection;
