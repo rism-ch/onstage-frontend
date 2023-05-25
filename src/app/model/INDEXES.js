@@ -32,9 +32,19 @@ export const generateCollections = () => [
     { field: 'ch_gm', label: renderCollectionLabel('ch_gm') },
     { field: 'ch_lac', label: renderCollectionLabel('ch_lac') },
     { field: 'ch_famb', label: renderCollectionLabel('ch_famb') }
-
 ];
 
+export const collectionByURL = (url) => {
+    const match = {
+        'CH-Gc': 'ch_gc',
+        'CH-Gmu': 'ch_gm',
+        'CH-LAc': 'ch_lac',
+        'FAMB': 'ch_famb',
+
+    };
+
+    return match[url] || false;
+};
 
 export default {
     generateSearchIndexes,
