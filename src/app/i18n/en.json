@@ -16,7 +16,8 @@
             "ch_gc": "Conservatoire de Genève",
             "ch_gm": "La Musicale – Genève",
             "ch_lac": "Conservatoire de Lausanne",
-            "ch_famb": "Freunde Alter Musik Basel"
+            "ch_famb": "Freunde Alter Musik Basel",
+            "all": "All collections"
         },
         "topMenu": {
             "pages": {
