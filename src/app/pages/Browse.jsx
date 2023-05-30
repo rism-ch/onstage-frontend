@@ -16,6 +16,8 @@ import DocumentDetail from '../components/shared/DocumentDetail.jsx';
 import SearchResults from '../components/shared/SearchResults.jsx';
 import PaginationHeader from '../components/shared/PaginationHeader.jsx';
 
+import DateRangePicker from '../components/form/DateRangePicker.jsx';
+
 import { generateBrowseIndexes, renderFacetLabel } from '../model/INDEXES';
 
 import BrowseContext from '../context/browseContext';
@@ -61,7 +63,7 @@ const BrowsePage = () => {
 
         return browseContext.browseResults.length > 0
             ? (
-                <div style={{ display: 'flex', alignItems: 'center', marginLeft: '2em' }}>
+                <div style={{ display: 'flex', justifyContent: 'felx-start', alignItems: 'center',  }}>
                     <b>Fast nav: </b>
                     {
                         letters.map(letter => <a style={{ padding: '.2em .3em', borderRight: '1px solid #eee', color: '#515151', textDecoration: 'none' }} key={letter} href={`#${letter}`}>{letter}</a>)
@@ -185,14 +187,26 @@ const BrowsePage = () => {
             />
 
             <form onSubmit={browseContext.onFormSubmitHandler}>
-                <div style={{ display: 'flex', jusityContent: 'flext-start' }}>
+                <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
                     <Select
+                        label={t('browse.form.select_placeholder')}
                         style={{ width: 'auto' }}
                         value={browseContext.currentIndex.index}
-                        //placeholder={t('browse.form.select_placeholder')}
+                        // placeholder={}
                         options={generateBrowseIndexes()}
                         onChangeHandler={browseContext.onSelectChangeHandler}
                     />
+
+                    <div style={{width: '300px', marginLeft: '3em'}}>
+                        <span style={{ }}>{t('contextBar.dateRange')}</span>
+                        <DateRangePicker
+                            from={analysisContext.dateRange.from}
+                            to={analysisContext.dateRange.to}
+                            onChangeHandler={analysisContext.dateRangeChangeHandler}
+                            minFrom={1800}
+                            maxTo={2021}
+                        />
+                    </div>
                 </div>
                 {renderBrowseNav()}
             </form>
@@ -205,7 +219,7 @@ const BrowsePage = () => {
         let view = (
             <React.Fragment>
                 {renderForm()}
-                <div style={{ padding: '4em 0 1em 0' }}>
+                <div style={{ padding: '6em 0 1em 0' }}>
                     {browseContext.isLoading ? renderLoading() : renderBrowseResults()}
                 </div>
             </React.Fragment>
