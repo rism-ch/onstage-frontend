@@ -19,6 +19,8 @@ import FacetsSelector from '../components/shared/FacetsSelector/FacetsSelector.j
 import SearchResults from '../components/shared/SearchResults.jsx';
 import PaginationHeader from '../components/shared/PaginationHeader.jsx';
 
+import DateRangePicker from '../components/form/DateRangePicker.jsx';
+
 import { generateSearchIndexes, renderFacetLabel } from '../model/INDEXES';
 
 import SearchContext from '../context/searchContext';
@@ -49,6 +51,18 @@ const SearchPage = () => {
                     </div>
                     <div style={{ padding: '1em 0', minWidth: '318px', maxWidth: '318px' }}>
                         <FacetsSelector {...searchContext} />
+
+                        <div>
+                            <h4 style={{ padding: '2em 0 1em 0' }}>{t('contextBar.dateRange')}</h4>
+                            <DateRangePicker
+                                from={analysisContext.dateRange.from}
+                                to={analysisContext.dateRange.to}
+                                onChangeHandler={analysisContext.dateRangeChangeHandler}
+                                minFrom={1800}
+                                maxTo={2021}
+                            />
+
+                        </div>
                     </div>
                 </div>
                 <Paginator
