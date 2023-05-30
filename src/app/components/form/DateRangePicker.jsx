@@ -31,12 +31,12 @@ export default class DateRangePicker extends Component {
     }
 
     componentDidMount() {
-        this.emitData();
+        (this.state.from !== this.props.from && this.state.to !== this.props.to) && this.emitData();
     }
 
     onChangeHandler(field) {
         return value => {
-            this.setState({ [`input_${field}`]: value }, this.emitData);
+            this.setState({ [`input_${field}`]: parseInt(value, 10) }, this.emitData);
         };
     }
 
