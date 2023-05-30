@@ -51,7 +51,6 @@ const SearchPage = () => {
                     </div>
                     <div style={{ padding: '1em 0', minWidth: '318px', maxWidth: '318px' }}>
                         <FacetsSelector {...searchContext} />
-
                         <div>
                             <h4 style={{ padding: '2em 0 1em 0' }}>{t('contextBar.dateRange')}</h4>
                             <DateRangePicker
@@ -61,7 +60,6 @@ const SearchPage = () => {
                                 minFrom={1800}
                                 maxTo={2021}
                             />
-
                         </div>
                     </div>
                 </div>
@@ -73,8 +71,8 @@ const SearchPage = () => {
 
             </React.Fragment>
         ) : (
-                !searchContext.isLoading && searchContext.searchResults.numFound === 0 && <h3>{t('search.noResults')}</h3>
-            );
+            !searchContext.isLoading && searchContext.searchResults.numFound === 0 && <h3>{t('search.noResults')}</h3>
+        );
     };
 
     const renderForm = () => (
