@@ -1,5 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 
+import { useNavigate  } from 'react-router-dom';
+
 import { useStateWithSession } from '../service/serviceStorage';
 import { useDidMount } from '../hooks/useDidMount';
 
@@ -27,6 +29,8 @@ const INITIAL_INDEX = {
 };
 
 const BrowseState = props => {
+
+    const navigate = useNavigate();
 
     const [browseResults, setBrowseResults] = useStateWithSession([], 'browseResults', SESSION_PREFIX);
     const [browseTerms, setBrowseTerms] = useStateWithSession(INITIAL_BROWSE_TERMS, 'browseTerms', SESSION_PREFIX);
@@ -190,7 +194,7 @@ const BrowseState = props => {
             page: 0
         });
         analysisContext.setShouldUpdateSearchHistory(true);
-        props.history.push('/search');
+        navigate('/search');
     };
 
     const selectPage = page => {
