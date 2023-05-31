@@ -198,7 +198,7 @@ const BrowsePage = () => {
                     />
 
                     <div style={{width: '300px', marginLeft: '3em'}}>
-                        <span style={{ }}>{t('contextBar.dateRange')}</span>
+                        <label>{t('contextBar.dateRange')}</label>
                         <DateRangePicker
                             from={analysisContext.dateRange.from}
                             to={analysisContext.dateRange.to}
