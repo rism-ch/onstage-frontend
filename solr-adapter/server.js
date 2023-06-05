@@ -1,7 +1,15 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const axios = require('axios');
+
+let axios;
+
+try {
+    axios = require('axios/dist/node/axios.cjs');
+} catch (e) {
+    console.log('CommonJS failed, trying module type...');
+    axios = require('axios');
+}
 
 const app = express();
 const port = process.env.PORT || 5000;
