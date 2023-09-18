@@ -41,7 +41,7 @@ export const collectionByURL = (url) => {
         'CH-Gmu': 'ch_gm',
         'CH-LAc': 'ch_lac',
         'FAMB': 'ch_famb',
-        'CH_Lz': 'ch_lz',
+        'CH-Lz': 'ch_lz',
     };
 
     return match[url] || false;
