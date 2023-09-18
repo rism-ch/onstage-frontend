@@ -31,7 +31,8 @@ export const generateCollections = () => [
     { field: 'ch_gc', label: renderCollectionLabel('ch_gc') },
     { field: 'ch_gm', label: renderCollectionLabel('ch_gm') },
     { field: 'ch_lac', label: renderCollectionLabel('ch_lac') },
-    { field: 'ch_famb', label: renderCollectionLabel('ch_famb') }
+    { field: 'ch_famb', label: renderCollectionLabel('ch_famb') },
+    { field: 'ch_lz', label: renderCollectionLabel('ch_lz') }
 ];
 
 export const collectionByURL = (url) => {
@@ -40,7 +41,7 @@ export const collectionByURL = (url) => {
         'CH-Gmu': 'ch_gm',
         'CH-LAc': 'ch_lac',
         'FAMB': 'ch_famb',
-
+        'CH_Lz': 'ch_lz',
     };
 
     return match[url] || false;

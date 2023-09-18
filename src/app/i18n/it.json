@@ -17,6 +17,7 @@
             "ch_gm": "La Musicale – Genève",
             "ch_lac": "Conservatoire de Lausanne",
             "ch_famb": "Freunde Alter Musik Basel",
+            "ch_lz": "Zentral- und Hochschulbibliothek Luzern",
             "all": "Tutte le collezioni"
         },
         "topMenu": {
@@ -29,6 +30,7 @@
                     "fundsGeneve": "Fondo Conservatoire de Genève",
                     "fundsGeneveMusicale": "Fondo La Musicale – Genève",
                     "collectionsBasel": "Fondo Freunde Alter Musik Basel",
+                    "collectionsLuzern": "Sammlung Zentral- und Hochschulbibliothek Luzern",
                     "help": "Aiuto"
                 }
             },

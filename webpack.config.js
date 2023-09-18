@@ -32,7 +32,7 @@ module.exports = environment => ({
         // here it is the local server configuration
         proxy: {
             '/api/**': {
-                target: 'http://localhost:5000',
+                target: 'https://onstage-adapter.rism.digital',
                 changeOrigin: true,
                 secure: false,
             },
@@ -104,7 +104,7 @@ module.exports = environment => ({
             // here it is the endpoint for remote onstage search server 
             // used only if useRemoteServer is setted as true, as explained above
             SOLR_BASE_SERVER: environment.production || useRemoteServer
-                ? JSON.stringify('http://onstage-search.rism-ch.org')
+                ? JSON.stringify('https://onstage-adapter.rism.digital')
                 : JSON.stringify(''),
         })
     ]
