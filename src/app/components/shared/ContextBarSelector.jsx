@@ -28,7 +28,7 @@ export const ContextBarSelector = props => {
                 to={context.dateRange.to}
                 onChangeHandler={context.dateRangeChangeHandler}
                 minFrom={1800}
-                maxTo={2021}
+                maxTo={2024}
             />
         </ContextBar>
     );

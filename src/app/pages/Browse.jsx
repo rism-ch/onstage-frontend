@@ -204,7 +204,7 @@ const BrowsePage = () => {
                             to={analysisContext.dateRange.to}
                             onChangeHandler={analysisContext.dateRangeChangeHandler}
                             minFrom={1800}
-                            maxTo={2021}
+                            maxTo={2024}
                         />
                     </div>
                 </div>
